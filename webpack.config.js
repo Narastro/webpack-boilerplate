@@ -1,15 +1,19 @@
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const BASE_JS = "./src/client/js/";
+const isDev = process.env.NODE_ENV === "development"; // Dev모드일 때만 소스맵 사용
 
 module.exports = {
   // 처리하고자 하는 파일
   entry: {
-    index: BASE_JS + "index.js",
+    app: BASE_JS + "app.js",
   },
+  devtool: isDev ? "eval" : "inline-source-map",
   // 사용할 플러그인
   plugins: [
+    new Dotenv(),
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
     }),
