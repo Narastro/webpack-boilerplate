@@ -9,8 +9,9 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/", rootRouter);
 app.use("/api", apiRouter);
 app.use("/assets", express.static("assets"));
+app.use("/static", express.static("src/client"));
+app.use("/", rootRouter);
 
 export default app;

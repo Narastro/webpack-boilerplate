@@ -1,5 +1,4 @@
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const BASE_JS = "./src/client/js/";
@@ -13,7 +12,6 @@ module.exports = {
   devtool: isDev ? "eval" : "inline-source-map",
   // 사용할 플러그인
   plugins: [
-    new Dotenv(),
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
     }),
